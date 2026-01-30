@@ -1,0 +1,30 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. COMPOUNDINT.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 PRINCIPAL   PIC 9(6).
+       01 RATE        PIC 9(2)V9(2).
+       01 YEARS       PIC 9(2).
+       01 I           PIC 9(2).
+       01 AMOUNT      PIC 9(9)V9(2).
+
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER PRINCIPAL AMOUNT: ".
+           ACCEPT PRINCIPAL.
+
+           DISPLAY "ENTER RATE OF INTEREST: ".
+           ACCEPT RATE.
+
+           DISPLAY "ENTER TIME (YEARS): ".
+           ACCEPT YEARS.
+
+           MOVE PRINCIPAL TO AMOUNT.
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > YEARS
+               COMPUTE AMOUNT = AMOUNT + (AMOUNT * RATE / 100)
+           END-PERFORM.
+
+           DISPLAY "COMPOUND AMOUNT = " AMOUNT.
+
+           STOP RUN.

@@ -1,0 +1,28 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. STRCONCAT.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 STR1        PIC X(20).
+       01 STR2        PIC X(20).
+       01 RESULT      PIC X(40).
+       01 STR-LEN     PIC 9(2).
+
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER FIRST STRING: ".
+           ACCEPT STR1.
+
+           DISPLAY "ENTER SECOND STRING: ".
+           ACCEPT STR2.
+
+           STRING STR1 DELIMITED BY SPACE
+                  STR2 DELIMITED BY SPACE
+                  INTO RESULT
+           END-STRING.
+
+           COMPUTE STR-LEN = FUNCTION LENGTH(RESULT).
+
+           DISPLAY "CONCATENATED STRING = " RESULT.
+           DISPLAY "LENGTH = " STR-LEN.
+
+           STOP RUN.

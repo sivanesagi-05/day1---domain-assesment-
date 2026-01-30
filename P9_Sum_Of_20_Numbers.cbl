@@ -1,0 +1,20 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. SUM20.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 NUM-ARRAY.
+          05 NUM-ELEM PIC 9(3) OCCURS 20 TIMES.
+       01 IDX        PIC 9(2).
+       01 TOTAL      PIC 9(6) VALUE 0.
+
+       PROCEDURE DIVISION.
+           PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > 20
+               DISPLAY "ENTER NUMBER: "
+               ACCEPT NUM-ELEM(IDX)
+               ADD NUM-ELEM(IDX) TO TOTAL
+           END-PERFORM.
+
+           DISPLAY "SUM OF 20 NUMBERS = " TOTAL.
+
+           STOP RUN.
